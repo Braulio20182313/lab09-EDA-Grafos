@@ -19,6 +19,15 @@ public class Graph {
 			G[i]=new LinkedList<Edge>();
 	}
 	
+	//Metodo complemetario para saber si el nodo x esta 
+	//conectado con el nodo y
+	
+	boolean isConnected(int u, int v) {
+		for(Edge i: G[u])
+			if (i.v==v) return true;
+		return false;
+	}
+	
 	void addEdge(int u,int v,int w) {
 		G[u].add(0,new Edge(v,w));
 	}
