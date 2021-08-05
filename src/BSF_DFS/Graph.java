@@ -16,6 +16,7 @@ public class Graph {
 	}
 	
 	public int bfs (int source, int destination) {
+		
 		boolean vis[] = new boolean[adj.length];
 		int parent[] = new int [adj.length];
 		Queue<Integer> q = new LinkedList<>();
@@ -30,6 +31,7 @@ public class Graph {
 			
 			for(int neighbor: adj[cur]) {
 				if(!vis[neighbor]) {
+					vis[neighbor] = true;
 					q.add(neighbor);
 					parent[neighbor] = cur;
 				}
