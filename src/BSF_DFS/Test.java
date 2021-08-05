@@ -19,5 +19,15 @@ public class Test {
 			
 			graph.addEdge(source, destination);
 		}
+		
+		System.out.println("Ingresa origen y destino: ");
+		int source = sc.nextInt();
+		int destination = sc.nextInt();
+		
+		int distance = graph.bfs(source, destination);
+		
+		System.out.println("Distancia minima es: " + distance);
+		
+		sc.close();
 	}
 }

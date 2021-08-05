@@ -14,4 +14,36 @@ public class Graph {
 		adj[source].add(destination);
 		adj[destination].add(source);
 	}
+	
+	public int bfs (int source, int destination) {
+		boolean vis[] = new boolean[adj.length];
+		int parent[] = new int [adj.length];
+		Queue<Integer> q = new LinkedList<>();
+		
+		q.add(source);
+		parent[source]=-1;	
+		vis[source]=true;
+		
+		while(!q.isEmpty()) {
+			int cur = q.poll();
+			if(cur == destination) break;
+			
+			for(int neighbor: adj[cur]) {
+				if(!vis[neighbor]) {
+					q.add(neighbor);
+					parent[neighbor] = cur;
+				}
+			}
+		}
+		int cur = destination;
+		int distance = 0;
+		
+		while ( parent[cur] != -1) {
+			System.out.println(cur + "->");
+			cur = parent[cur];
+			distance++;
+		}
+		
+		return distance;
+	}
 }
