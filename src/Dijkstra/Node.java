@@ -6,7 +6,12 @@ public class Node {
 	private boolean visited;
 	private ArrayList<Edge>edges = new ArrayList<Edge>();
 	
-	public void getDistanceFromSource(int distanceFromSource) {
+	
+	public int getDistanceFromSource() {
+		return distanceFromSource;
+	}
+	
+	public void setDistanceFromSource(int distanceFromSource) {
 		this.distanceFromSource = distanceFromSource;
 	}
 	
