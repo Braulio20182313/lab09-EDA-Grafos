@@ -41,11 +41,31 @@ public class Graph {
 		int distance = 0;
 		
 		while ( parent[cur] != -1) {
-			System.out.println(cur + "->");
+			System.out.print(cur + "->");
 			cur = parent[cur];
 			distance++;
 		}
 		
 		return distance;
+	}
+	
+	private boolean dfsUtil(int source, int destination, boolean vis[]) {
+		if (source == destination) return true;
+		
+		for(int neighbor: adj[source]) {
+			if(!vis[neighbor]) {
+				vis[neighbor] = true;
+				boolean isConnected = dfsUtil(neighbor, destination, vis);
+				if(isConnected) return true;	
+			}
+		}
+		return false;
+	}
+	
+	public boolean dfs(int source, int destination) {
+		boolean vis[] = new boolean [adj.length];
+		vis[source] = true;
+		
+		return dfsUtil(source, destination, vis);
 	}
 }
