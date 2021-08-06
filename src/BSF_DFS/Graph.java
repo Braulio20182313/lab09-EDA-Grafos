@@ -62,6 +62,29 @@ public class Graph {
 		return false;
 	}
 	
+	public boolean dfsStack(int source, int destination) {
+		boolean vis[] = new boolean[adj.length];
+		vis[source] = true;
+		Stack<Integer> stack = new Stack<>();
+		
+		stack.push(source);
+		
+		while(!stack.isEmpty()) {
+			int cur = stack.pop();
+			
+			if(cur == destination) return true;
+			
+			for(int neighbor: adj[cur]) {
+				if(!vis[neighbor]) {
+					vis[neighbor] = true;
+					stack.push(neighbor);
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 	public boolean dfs(int source, int destination) {
 		boolean vis[] = new boolean [adj.length];
 		vis[source] = true;
