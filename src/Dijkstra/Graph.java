@@ -8,8 +8,8 @@ public class Graph {
 	private Edge[] edges;
 	private int noOfEdges;
 	
-	public Graph(Node[] nodes) {
-		this.nodes = nodes;
+	public Graph(Edge[] edges) {
+		this.edges = edges;
 		
 		//crear todos los nodos listos para ser actualizados con los bordes
 		
@@ -55,7 +55,7 @@ public class Graph {
 			ArrayList<Edge> currentNodesEdges = this.nodes[nextNode].getEdges();
 			
 			for (int joinedEdge = 0; joinedEdge < currentNodesEdges.size(); joinedEdge++) {
-				int neighbourIndex = this.nodes[nextNode].getDistanceFromSource()+currentNodesEdges.get(joinedEdge).getLength();
+				int neighbourIndex = currentNodesEdges.get(joinedEdge).getNeighbourIndex(nextNode);
 				
 				//Solo si no se visita
 				if (!this.nodes[neighbourIndex].isVisited()) {
@@ -95,7 +95,7 @@ public class Graph {
 		output += "\n Numero de aristas = " + this.noOfEdges;
 		
 		for (int i = 0; i < this.nodes.length; i++) {
-			output += ("\nLa distancia mascorta del nodo 0 al nodo " + i + "es" + nodes[i].getDistanceFromSource());
+			output += ("\nLa distancia mascorta del nodo 0 al nodo " + i + " es: " + nodes[i].getDistanceFromSource());
 		}
 		
 		System.out.println(output);
