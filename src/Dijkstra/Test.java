@@ -15,7 +15,7 @@ public class Test {
 		
 		System.out.println("La longitud minima desde el origen hasta el destino");
 		
-		for(int i=0,i<6;i++) {
+		for(int i=0;i<6;i++) {
 			
 		}
 	}
