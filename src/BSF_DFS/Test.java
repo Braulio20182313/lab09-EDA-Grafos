@@ -24,11 +24,13 @@ public class Test {
 		int source = sc.nextInt();
 		int destination = sc.nextInt();
 		
-//		int distance = graph.bfs(source, destination);
-//		System.out.println("Distancia minima es: " + distance);
+		System.out.println("BSF--------------------");
+		int distance = graph.bfs(source, destination);
+		System.out.println("Distancia minima es: " + distance);
 		
 		//System.out.println("Posible ->" + graph.dfs(source, destination));
 		
+		System.out.println("DSF--------------------");
 		System.out.println("Posible ->" + graph.dfsStack(source, destination));
 		
 		sc.close();
